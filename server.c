@@ -4,14 +4,14 @@
 void receive_n_print(int received)
 {
 	static unsigned char c;
-	static int i;
+	static int bit_i;
 
-	i++;
+	bit_i++;
 	c |= (received == SIGUSR1);
-	if (i == 8)
+	if (bit_i == 8)
 	{
 		ft_printf("%c", c);
-		i = 0;
+		bit_i = 0;
 		c = 0;
 	}
 	else
