@@ -49,3 +49,4 @@ fclean: clean
 	@ make -C libft/ clean
 
 re: fclean all
+	s
