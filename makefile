@@ -19,10 +19,7 @@ OBJ_S_B = $(SRC_S_B:.c=.o)
 OBJ_C_B = $(SRC_C_B:.c=.o)
 
 %.o : %.c
-	@$(CC) $(CC_FLAGS) -c -o $@ $^
-
-libft:
-	@ make -C libft/
+	@$(CC) $(CC_FLAGS) -c $< -o $@
 
 server: libft $(OBJ_S)
 	@ $(CC) $(CC_FLAGS) -o $(S) $(OBJ_S) libft/*.o
@@ -37,6 +34,9 @@ server_bonus: libft $(OBJ_S_B)
 
 client_bonus: libft $(OBJ_C_B)
 	@ $(CC) $(CC_FLAGS) -o $(C_BONUS) $(OBJ_C_B) libft/*.o
+
+libft:
+	@ make -C libft/
 
 bonus: all server_bonus client_bonus
 
