@@ -2,7 +2,7 @@
 #include <unistd.h>
 #include "libft/libft.h"
 
-# define SIGUSR2
+
 
 void send(int pid, unsigned char c)
 {
