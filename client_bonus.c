@@ -23,9 +23,9 @@ void send(int pid, unsigned char c)
 void received_signal (int received)
 {
 	if (received == SIGUSR1)
-		ft_putchar_fd("1", 1);
+		ft_putchar_fd('1', 1);
 	else if (received == SIGUSR2)
-		ft_putchar_fd("2", 1) ;
+		ft_putchar_fd('2', 1) ;
 }
 int main(int ac, char **av)
 {
