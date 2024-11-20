@@ -6,15 +6,15 @@
 /*   By: gorodrig <gorodrig@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/07 12:07:12 by gorodrig          #+#    #+#             */
-/*   Updated: 2024/04/09 11:19:35 by gorodrig         ###   ########.fr       */
+/*   Updated: 2024/11/20 09:51:11 by gorodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int ft_ptrlen(unsigned long long ptr)
+int	ft_ptrlen(unsigned long long ptr)
 {
-	int len;
+	int	len;
 
 	len = 0;
 	while (ptr != 0)
@@ -25,7 +25,7 @@ int ft_ptrlen(unsigned long long ptr)
 	return (len);
 }
 
-void ft_putptr(unsigned long long ptr)
+void	ft_putptr(unsigned long long ptr)
 {
 	if (ptr >= 16)
 	{
@@ -40,9 +40,9 @@ void ft_putptr(unsigned long long ptr)
 	}
 }
 
-int ft_printptr(unsigned long long ptr)
+int	ft_printptr(unsigned long long ptr)
 {
-	int len;
+	int	len;
 
 	len = 0;
 	if (ptr == 0)
