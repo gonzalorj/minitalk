@@ -1,11 +1,23 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   server_bonus.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gorodrig <gorodrig@student.42madrid.com    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/11/20 09:32:30 by gorodrig          #+#    #+#             */
+/*   Updated: 2024/11/20 09:38:01 by gorodrig         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft/libft.h"
 #include <signal.h>
 #include <unistd.h>
 
-void action(int sig, siginfo_t *info, void *context)
+void	action(int sig, siginfo_t *info, void *context)
 {
-	static unsigned char c;
-	static int bit_i;
+	static unsigned char	c;
+	static int				bit_i;
 
 	(void)context;
 	c |= (sig == SIGUSR1);
@@ -24,9 +36,9 @@ void action(int sig, siginfo_t *info, void *context)
 		kill(info->si_pid, SIGUSR2);
 }
 
-int main(void)
+int	main(void)
 {
-	struct sigaction sa;
+	struct sigaction	sa;
 
 	sa.sa_sigaction = &action;
 	sa.sa_flags = SA_SIGINFO;
