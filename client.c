@@ -1,13 +1,23 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   client.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gorodrig <gorodrig@student.42madrid.com    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/11/20 09:32:39 by gorodrig          #+#    #+#             */
+/*   Updated: 2024/11/20 09:37:04 by gorodrig         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <signal.h>
 #include <unistd.h>
 #include "libft/libft.h"
 
-
-
-void send(int pid, unsigned char c)
+void	send(int pid, unsigned char c)
 {
-	int i;
-	unsigned char tmp;
+	int				i;
+	unsigned char	tmp;
 
 	i = 8;
 	tmp = c;
@@ -23,11 +33,11 @@ void send(int pid, unsigned char c)
 	}
 }
 
-int main(int ac, char **av)
+int	main(int ac, char **av)
 {
-	int pid;
-	char *s;
-	int i = 0;
+	int		pid;
+	char	*s;
+	int		i;
 
 	pid = ft_atoi(av[1]);
 	s = av[2];
@@ -35,12 +45,12 @@ int main(int ac, char **av)
 	if (ac != 3)
 	{
 		ft_error();
-		return 0;
+		return (0);
 	}
 	while (s[i])
 	{
 		send(pid, (unsigned char)s[i]);
 		i++;
 	}
-	return 0;
+	return (0);
 }
