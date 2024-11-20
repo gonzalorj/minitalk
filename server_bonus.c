@@ -6,7 +6,7 @@
 /*   By: gorodrig <gorodrig@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/20 09:32:30 by gorodrig          #+#    #+#             */
-/*   Updated: 2024/11/20 09:38:01 by gorodrig         ###   ########.fr       */
+/*   Updated: 2024/11/20 09:46:54 by gorodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include <signal.h>
 #include <unistd.h>
 
-void	action(int sig, siginfo_t *info, void *context)
+void	print_and_return(int sig, siginfo_t *info, void *context)
 {
 	static unsigned char	c;
 	static int				bit_i;
@@ -40,7 +40,7 @@ int	main(void)
 {
 	struct sigaction	sa;
 
-	sa.sa_sigaction = &action;
+	sa.sa_sigaction = &print_and_return;
 	sa.sa_flags = SA_SIGINFO;
 	sigemptyset(&sa.sa_mask);
 	ft_printf("Process ID is: %i\n", getpid());

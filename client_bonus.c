@@ -6,7 +6,7 @@
 /*   By: gorodrig <gorodrig@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/20 09:32:43 by gorodrig          #+#    #+#             */
-/*   Updated: 2024/11/20 09:35:44 by gorodrig         ###   ########.fr       */
+/*   Updated: 2024/11/20 09:44:12 by gorodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void	send(int pid, unsigned char c)
 	}
 }
 
-void	received_signal(int received)
+void	sig_handler(int received)
 {
 	if (received == SIGUSR1)
 		ft_putchar_fd('1', STDOUT_FILENO);
@@ -46,8 +46,8 @@ int	main(int ac, char **av)
 	char	*s;
 	int		i;
 
-	signal(SIGUSR1, received_signal);
-	signal(SIGUSR2, received_signal);
+	signal(SIGUSR1, sig_handler);
+	signal(SIGUSR2, sig_handler);
 	pid = ft_atoi(av[1]);
 	s = av[2];
 	i = 0;
