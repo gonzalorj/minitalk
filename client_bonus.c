@@ -1,10 +1,22 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   client_bonus.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gorodrig <gorodrig@student.42madrid.com    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/11/20 09:32:43 by gorodrig          #+#    #+#             */
+/*   Updated: 2024/11/20 09:35:44 by gorodrig         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <signal.h>
 #include "libft/libft.h"
 
-void send(int pid, unsigned char c)
+void	send(int pid, unsigned char c)
 {
-	int i;
-	unsigned char tmp;
+	int				i;
+	unsigned char	tmp;
 
 	i = 8;
 	tmp = c;
@@ -20,18 +32,19 @@ void send(int pid, unsigned char c)
 	}
 }
 
-void received_signal (int received)
+void	received_signal(int received)
 {
 	if (received == SIGUSR1)
-		ft_putchar_fd('1', 1);
+		ft_putchar_fd('1', STDOUT_FILENO);
 	else if (received == SIGUSR2)
-		ft_putchar_fd('0', 1) ;
+		ft_putchar_fd('0', STDOUT_FILENO);
 }
-int main(int ac, char **av)
+
+int	main(int ac, char **av)
 {
-	int pid;
-	char *s;
-	int i;
+	int		pid;
+	char	*s;
+	int		i;
 
 	signal(SIGUSR1, received_signal);
 	signal(SIGUSR2, received_signal);
@@ -41,12 +54,12 @@ int main(int ac, char **av)
 	if (ac != 3)
 	{
 		ft_error();
-		return 0;
+		return (0);
 	}
 	while (s[i])
 	{
 		send(pid, (unsigned char)s[i]);
 		i++;
 	}
-	return 0;
+	return (0);
 }
