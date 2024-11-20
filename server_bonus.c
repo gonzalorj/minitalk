@@ -31,7 +31,7 @@ int main(void)
 	sa.sa_sigaction = &action;
 	sa.sa_flags = SA_SIGINFO;
 	sigemptyset(&sa.sa_mask);
-	ft_printf("El ID del cliente es: %i\n", getpid());
+	ft_printf("Process ID is: %i\n", getpid());
 	sigaction(SIGUSR2, &sa, NULL);
 	sigaction(SIGUSR1, &sa, NULL);
 	while (1)
