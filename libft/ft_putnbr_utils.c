@@ -41,7 +41,7 @@ int	ft_putnbr(int n)
 	return (len);
 }
 
-unsigned int	ft_put_unsignednbr(unsigned int n)
+int	ft_put_unsignednbr(unsigned int n)
 {
 	int	len;
 

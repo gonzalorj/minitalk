@@ -28,7 +28,7 @@ void	send(int pid, unsigned char c)
 			kill(pid, SIGUSR2);
 		else
 			kill(pid, SIGUSR1);
-		usleep(50);
+		usleep(100);
 	}
 }
 

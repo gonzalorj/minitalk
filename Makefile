@@ -36,7 +36,7 @@ client_bonus: libft $(OBJ_C_B)
 	@ $(CC) $(CC_FLAGS) -o $(C_BONUS) $(OBJ_C_B) libft/*.o
 
 libft:
-	@ make -C libft/
+	@ make -C libft/ --silent
 
 bonus: all server_bonus client_bonus
 
